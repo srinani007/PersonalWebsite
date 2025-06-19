@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkat Sai Prasanth - Full Stack & AI Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-custom {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .quantum-dot {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        .quantum-dot:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .quantum-dot:nth-child(3) {
+            animation-delay: 1s;
+        }
+        .scroll-icon {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        .hero-video {
+            object-fit: cover;
+        }
+        .nav-link.active {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="font-roboto bg-gray-900 text-gray-100">
+<!-- Loading Screen -->
+<div class="loader fixed inset-0 z-50 flex items-center justify-center bg-gray-900 transition-opacity duration-1000">
+    <div class="quantum-loader flex space-x-4">
+        <div class="quantum-dot h-4 w-4 rounded-full bg-blue-500"></div>
+        <div class="quantum-dot h-4 w-4 rounded-full bg-blue-500"></div>
+        <div class="quantum-dot h-4 w-4 rounded-full bg-blue-500"></div>
+    </div>
+</div>
+
+<!-- Dark Mode Toggle -->
+<button id="theme-toggle" class="theme-toggle fixed top-6 right-6 z-50 p-2 rounded-full bg-gray-800 shadow-lg hover:bg-gray-700 transition-colors">
+    <span class="text-xl">🌙</span>
+</button>
+
+<!-- Video Background -->
+<div class="video-container fixed inset-0 -z-10 overflow-hidden">
+    <video id="myVideo" autoplay muted loop playsinline class="hero-video w-full h-full object-cover opacity-30">
+        <source src="video-4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- Header -->
+<header class="neon-header sticky top-0 z-40 backdrop-blur-md bg-gray-900/80 border-b border-gray-800">
+    <nav class="responsive-nav container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="nav-brand">
+            <img src="logo.png" alt="Venkat's Portfolio Logo" class="hologram-logo h-10 w-auto">
+        </div>
+        <button class="hamburger md:hidden flex flex-col justify-center items-center w-8 h-8" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <div class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all"></div>
+            <div class="hamburger-line w-6 h-0.5 bg-white mb-1.5 transition-all"></div>
+            <div class="hamburger-line w-6 h-0.5 bg-white transition-all"></div>
+        </button>
+        <ul class="nav-items hidden md:flex space-x-8">
+            <li><a href="#home" class="nav-link flex items-center hover:text-blue-400 transition-colors"><i class="fas fa-home mr-2"></i> Home</a></li>
+            <li><a href="#about" class="nav-link flex items-center hover:text-blue-400 transition-colors"><i class="fas fa-user mr-2"></i> About</a></li>
+            <li><a href="#experience" class="nav-link flex items-center hover:text-blue-400 transition-colors"><i class="fas fa-briefcase mr-2"></i> Experience</a></li>
+            <li><a href="#projects" class="nav-link flex items-center hover:text-blue-400 transition-colors"><i class="fas fa-project-diagram mr-2"></i> Projects</a></li>
+            <li><a href="#skills" class="nav-link flex items-center hover:text-blue-400 transition-colors"><i class="fas fa-code mr-2"></i> Skills</a></li>
+            <li><a href="#contact" class="nav-link flex items-center hover:text-blue-400 transition-colors"><i class="fas fa-envelope mr-2"></i> Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden fixed inset-0 z-30 bg-gray-900/95 backdrop-blur-md flex flex-col items-center justify-center">
+    <button class="close-menu absolute top-6 right-6 text-3xl">×</button>
+    <ul class="flex flex-col items-center space-y-8 text-xl">
+        <li><a href="#home" class="nav-link-mobile hover:text-blue-400 transition-colors">Home</a></li>
+        <li><a href="#about" class="nav-link-mobile hover:text-blue-400 transition-colors">About</a></li>
+        <li><a href="#experience" class="nav-link-mobile hover:text-blue-400 transition-colors">Experience</a></li>
+        <li><a href="#projects" class="nav-link-mobile hover:text-blue-400 transition-colors">Projects</a></li>
+        <li><a href="#skills" class="nav-link-mobile hover:text-blue-400 transition-colors">Skills</a></li>
+        <li><a href="#contact" class="nav-link-mobile hover:text-blue-400 transition-colors">Contact</a></li>
+    </ul>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero min-h-screen flex flex-col justify-center items-center text-center px-4 py-20 relative">
+    <div class="hero-image mb-8">
+        <img src="avata.png" alt="Avatar of Venkat Sai Prasanth" class="rounded-full w-48 h-48 object-cover border-4 border-blue-500 shadow-lg">
+    </div>
+    <div class="hero-content max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Hello, I'm Venkat Sai Prasanth</h1>
+        <p class="animated-text text-xl md:text-2xl mb-8 text-gray-300 animate-pulse-custom">Software Development Engineer | AI & Cloud Expert</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#contact" class="cta-btn flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors shadow-lg">
+                <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+            </a>
+            <a href="Venkat_Sai_Prasanth_Resume.pdf" download class="cta-btn secondary flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-full transition-colors border border-gray-700 shadow-lg">
+                <i class="fas fa-download mr-2"></i> Download Resume
+            </a>
+        </div>
+    </div>
+    <div class="scroll-indicator absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <p class="mb-2 text-sm">Scroll Down</p>
+        <div class="scroll-icon w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center">
+            <div class="w-1 h-2 bg-blue-400 mt-2 rounded-full"></div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section py-20 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Professional Profile</h2>
+    <div class="text-center mb-12">
+        <p class="text-lg md:text-xl mb-6 leading-relaxed">I'm a Software Development Engineer with a Master's in Business Analytics from Trine University, passionate about harnessing AI and cloud technologies to solve real-world challenges. With over 6 years of experience, I specialize in crafting scalable microservices and AI-driven solutions using tools like Java, Python, Spring Boot, React, TensorFlow, and PyTorch on platforms like GCP, AWS, and Azure.</p>
+        <p class="text-lg md:text-xl leading-relaxed">The journey is fueled by a drive to innovate—whether it's optimizing real-time data processing, exploring quantum computing, or delivering impactful user experiences. Dive into my projects and experience below to see how I turn ideas into reality!</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="about-card p-8 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-rocket mr-3 text-blue-400"></i> Technical Leadership</h3>
+            <ul class="space-y-3">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Led 10+ cross-functional teams in cloud migration projects</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Architected microservices handling 50K+ RPM on AWS</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Mentored 15+ junior developers in best practices</li>
+            </ul>
+        </div>
+        <div class="about-card p-8 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-xl hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-shield-alt mr-3 text-blue-400"></i> Security Innovations</h3>
+            <ul class="space-y-3">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented Zero Trust Architecture for Fortune 500 client</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Reduced security incidents by 65% through DevSecOps pipeline</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Conducted 50+ penetration tests for financial systems</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section py-20 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Skills</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Java 17</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Spring Boot</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">ReactJS</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Python</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">TensorFlow</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">AWS</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">GCP</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Azure</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Docker</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Kubernetes</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Kafka</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Sparks</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">NLP</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">PyTorch</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">SQL</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Machine Learning</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Data Analysis</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Agile Methodologies</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">CI/CD</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">DevOps</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Microservices</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">RESTful APIs</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">GraphQL</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Redis</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">MongoDB</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">PostgreSQL</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">MySQL</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">NoSQL</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">HTML5</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">CSS3</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">JavaScript</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">TypeScript</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Node.js</div>
+        <div class="skill-card p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 hover:shadow-lg transition-all text-center">Express.js</div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Experience</h2>
+
+    <div class="timeline relative">
+        <!-- Timeline line -->
+        <div class="absolute left-4 md:left-1/2 h-full w-0.5 bg-blue-500 transform -translate-x-1/2"></div>
+
+        <!-- Timeline items -->
+        <div class="timeline-item mb-12 relative pl-12 md:pl-0 md:even:pl-12 md:odd:pr-12 md:odd:text-right">
+            <div class="timeline-content bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
+                <h3 class="text-xl font-bold mb-2">Graduate Research Assistant @ Trine University</h3>
+                <p class="timeline-date text-blue-400 mb-4">Aug 2023 - Present</p>
+                <div class="timeline-details">
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Designed real-time analytics pipeline processing 2TB/day using Spark</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Developed predictive maintenance models with 92% accuracy</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Optimized AWS costs by 40% through infrastructure automation</li>
+                    </ul>
+                    <div class="tech-stack flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">TensorFlow</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-dot absolute left-2 md:left-1/2 top-6 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2"></div>
+        </div>
+
+        <div class="timeline-item mb-12 relative pl-12 md:pl-0 md:even:pl-12 md:odd:pr-12 md:odd:text-right">
+            <div class="timeline-content bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
+                <h3 class="text-xl font-bold mb-2">AI Engineer @ University of Dayton</h3>
+                <p class="timeline-date text-blue-400 mb-4">Jul 2023 - Aug 2023</p>
+                <div class="timeline-details">
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Built document processing system with 30% accuracy improvement</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Integrated Google Vision API for image classification</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Reduced processing time by 25% through parallel computing</li>
+                    </ul>
+                    <div class="tech-stack flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">GCP</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-dot absolute left-2 md:left-1/2 top-6 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2"></div>
+        </div>
+
+        <div class="timeline-item mb-12 relative pl-12 md:pl-0 md:even:pl-12 md:odd:pr-12 md:odd:text-right">
+            <div class="timeline-content bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
+                <h3 class="text-xl font-bold mb-2">Mphasis Technologies - Software Engineer</h3>
+                <p class="timeline-date text-blue-400 mb-4">Jul 2022 – Mar 2023</p>
+                <div class="timeline-details">
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Migrated banking systems to microservices with Spring Boot and AWS, reducing downtime by 30%</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented CI/CD pipelines, reducing deployment time by 50%</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Developed RESTful APIs for payment processing, improving transaction speed by 20%</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Collaborated with cross-functional teams to enhance system performance</li>
+                    </ul>
+                    <div class="tech-stack flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">AWS</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Kubernetes</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">MySQL</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-dot absolute left-2 md:left-1/2 top-6 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2"></div>
+        </div>
+
+        <div class="timeline-item mb-12 relative pl-12 md:pl-0 md:even:pl-12 md:odd:pr-12 md:odd:text-right">
+            <div class="timeline-content bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
+                <h3 class="text-xl font-bold mb-2">Swiss Mobi Software Technologies - Software Engineer</h3>
+                <p class="timeline-date text-blue-400 mb-4">Mar 2019 – Jun 2022</p>
+                <div class="timeline-details">
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Built payment processing platforms and SPAs with React.js, improving performance by 20%</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Designed and implemented microservices architecture for an e-commerce platform</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Integrated third-party APIs for payment processing and shipping</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Conducted code reviews and mentored junior developers</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Collaborated with product managers to define project scope and requirements</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Participated in Agile ceremonies, including sprint planning and retrospectives</li>
+                    </ul>
+                    <div class="tech-stack flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">React.js</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">MongoDB</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Redis</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Kafka</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Jenkins</span>
+                        <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">JUnit</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-dot absolute left-2 md:left-1/2 top-6 w-4 h-4 rounded-full bg-blue-500 transform -translate-x-1/2"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section py-20 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Technical Showcase</h2>
+    <div class="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="project-card bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4">Real-time Data Processing System</h3>
+            <ul class="project-details space-y-3 mb-4">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Achieved 95% accuracy in fraud detection</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Real-time data processing with Apache Kafka</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Deployed on AWS Lambda for scalability</li>
+            </ul>
+            <div class="project-tech flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">TensorFlow</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">AWS Lambda</span>
+            </div>
+        </div>
+
+        <div class="project-card bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4">AI-Powered Chatbot</h3>
+            <p class="mb-4">Built with Spring Boot and GCP Cloud Functions, integrated with Dialogflow CX for seamless interactions.</p>
+            <ul class="project-details space-y-3 mb-4">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Integrated with Google Cloud Functions</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Utilized Dialogflow CX for natural language processing</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented CI/CD pipeline for continuous deployment</li>
+            </ul>
+            <div class="project-tech flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">GCP</span>
+            </div>
+        </div>
+
+        <div class="project-card bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4">Fraud Detection Microservice</h3>
+            <p class="mb-4">AI-driven system using TensorFlow, Kafka, and Redis for real-time anomaly detection.</p>
+            <ul class="project-details space-y-3 mb-4">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Real-time fraud detection with 95% accuracy</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Used TensorFlow for machine learning</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented with Kafka and Redis for data streaming</li>
+            </ul>
+            <div class="project-tech flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">TensorFlow</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Kafka</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Redis</span>
+            </div>
+        </div>
+
+        <div class="project-card bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4">Predictive Analytics for Sales</h3>
+            <p class="mb-4">Developed ML models in Python to forecast sales, optimizing inventory management.</p>
+            <ul class="project-details space-y-3 mb-4">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented predictive models with 90% accuracy</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Used Python and TensorFlow for model development</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Deployed on AWS Lambda for scalability</li>
+            </ul>
+            <div class="project-tech flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">TensorFlow</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">AWS Lambda</span>
+            </div>
+        </div>
+
+        <div class="project-card bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+            <h3 class="text-xl font-bold mb-4">Social Media Platform</h3>
+            <ul class="project-details space-y-3 mb-4">
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Developed a social media platform with user authentication</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented RESTful APIs for data retrieval</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Developed and Designed via Java Spring Boot</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Integrated with PostreSQL for data storage</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Implemented CI/CD pipeline for continuous deployment</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Utilized Docker for containerization</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Write a JSON file for kubernetes containerization</li>
+                <li class="flex items-start"><span class="mr-2 text-blue-400">•</span> Conducted unit testing with JUnit</li>
+            </ul>
+            <a href="https://social-media-platform-sdi1.onrender.com" class="text-blue-400 hover:text-blue-300 transition-colors inline-block mt-2"><strong>Check Out my project</strong></a>
+            <div class="project-tech flex flex-wrap gap-2 mt-4">
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">PostgreSQL</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Certifications</h2>
+    <ul class="certification-list grid md:grid-cols-2 gap-4">
+        <li class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Google Cloud Professional Data Engineer
+        </li>
+        <li class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> AWS Certified Solutions Architect—Associate
+        </li>
+        <li class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Microsoft Certified: Azure Developer Associate
+        </li>
+        <li class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Certified Kubernetes Administrator (CKA)
+        </li>
+        <li class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Oracle Certified Professional, Java SE 11 Developer
+        </li>
+    </ul>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Academic Credentials</h2>
+    <div class="education-grid">
+        <div class="education-card bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
+            <h3 class="text-2xl font-bold mb-2">MS in Business Analytics</h3>
+            <p class="institution text-blue-400 mb-4">Trine University</p>
+            <div class="education-details">
+                <p class="gpa mb-4">GPA: 3.8/4.0</p>
+                <div class="courses flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-700 rounded-full">Advanced Machine Learning</span>
+                    <span class="px-3 py-1 bg-gray-700 rounded-full">Cloud Architecture</span>
+                    <span class="px-3 py-1 bg-gray-700 rounded-full">Data Mining</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Future Goals Section -->
+<section id="My Future Goals" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Future Goals</h2>
+    <div class="space-y-6">
+        <p class="text-lg leading-relaxed">
+            My future is rooted in ambition, innovation, and relentless drive. I aim to build groundbreaking solutions at the intersection of AI, cloud computing, and real-world business needs — not just following trends, but setting them. I envision myself leading transformative projects where machine learning and data-driven insights shape industries and redefine possibilities.
+        </p>
+        <p class="text-lg leading-relaxed">
+            I am committed to a lifetime of learning, constantly sharpening my skills in advanced AI, quantum computing, blockchain, and emerging technologies that will define the next era. Beyond personal growth, I aspire to mentor upcoming developers, contribute to open-source communities, and champion a culture of collaboration and innovation across the tech world.
+        </p>
+        <p class="text-lg leading-relaxed">
+            My long-term vision is clear: to stand at the forefront of technological evolution — building companies, leading bold teams, and pushing the limits of what technology and human potential can achieve together. I'm not just chasing the future; I'm shaping it.
+        </p>
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section id="achievements" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Achievements</h2>
+    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+        <p class="mb-6 text-lg">🏆 Here are some of my notable achievements that reflect my dedication and impact in the tech industry:</p>
+        <ul class="space-y-4">
+            <li class="flex items-start"><span class="mr-3">📄</span> Published research paper on <strong>"AI in Cloud Computing"</strong> in IEEE Xplore</li>
+            <li class="flex items-start"><span class="mr-3">🎤</span> Presented at the <strong>International Conference on AI and Cloud Technologies</strong></li>
+            <li class="flex items-start"><span class="mr-3">🏆</span> Winner of Trine University Hackathon for <strong>"Best AI Solution"</strong></li>
+            <li class="flex items-start"><span class="mr-3">📊</span> Ranked in the <strong>Top 5%</strong> in Kaggle competitions for predictive modeling</li>
+            <li class="flex items-start"><span class="mr-3">🎓</span> Completed <strong>100+ hours</strong> of online courses on Coursera and Udacity</li>
+            <li class="flex items-start"><span class="mr-3">☁️</span> Secured <strong>2nd place</strong> at the Google Cloud Hackathon</li>
+            <li class="flex items-start"><span class="mr-3">💻</span> Contributed to open-source GitHub projects in AI and Cloud domains</li>
+            <li class="flex items-start"><span class="mr-3">🧑‍🏫</span> Volunteered as a mentor at local coding bootcamp, teaching <strong>Java & Python</strong></li>
+            <li class="flex items-start"><span class="mr-3">📢</span> Organized community tech meetups and workshops on AI/Cloud tech</li>
+            <li class="flex items-start"><span class="mr-3">⭐</span> Earned "Employee of the Month" at Mphasis for outstanding performance</li>
+            <li class="flex items-start"><span class="mr-3">🛡️</span> Completed <strong>AWS & GCP certifications</strong> with high distinction</li>
+            <li class="flex items-start"><span class="mr-3">🥇</span> Won multiple awards in national-level hackathons and coding competitions</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Hobbies Section -->
+<section id="hobbies" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Hobbies & Interests</h2>
+    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+        <ul class="space-y-4">
+            <li class="flex items-start"><span class="mr-3">💻</span> Coding: Passionate about open-source contributions and personal projects</li>
+            <li class="flex items-start"><span class="mr-3">🎮</span> Gaming: Passionate about strategy and simulation games</li>
+            <li class="flex items-start"><span class="mr-3">📚</span> Reading: Enjoy books on technology, AI, and science fiction</li>
+            <li class="flex items-start"><span class="mr-3">🎨</span> Art: Exploring digital art and graphic design</li>
+            <li class="flex items-start"><span class="mr-3">🌍</span> Travel: Love to explore new cultures and cuisines</li>
+            <li class="flex items-start"><span class="mr-3">🎶</span> Music: Enjoy listening to various genres, especially electronic and classical</li>
+            <li class="flex items-start"><span class="mr-3">🏋️‍♂️</span> Fitness: Regularly engage in workouts and outdoor activities</li>
+            <li class="flex items-start"><span class="mr-3">🧘‍♂️</span> Meditation: Practice mindfulness and meditation for mental well-being</li>
+            <li class="flex items-start"><span class="mr-3">📸</span> Photography: Enjoy capturing moments and landscapes</li>
+            <li class="flex items-start"><span class="mr-3">🎤</span> Public Speaking: Participate in tech talks and community events</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section py-20 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">Connect</h2>
+    <div class="contact-wrapper">
+        <div class="contact-card bg-gray-800 p-8 rounded-xl border border-gray-700">
+            <div class="space-y-6 mb-8">
+                <!-- Email Link -->
+                <a href="mailto:kvsprasanth007@gmail.com" class="contact-link flex items-center text-lg hover:text-blue-400 transition-colors">
+                    <i class="fas fa-envelope text-blue-400 mr-4"></i>
+                    <span>kvsprasanth007@gmail.com</span>
+                </a>
+                <!-- LinkedIn Link -->
+                <a href="https://www.linkedin.com/in/venkat-kunchanapalli-49515274/" target="_blank" rel="noopener" class="contact-link flex items-center text-lg hover:text-blue-400 transition-colors">
+                    <i class="fab fa-linkedin text-blue-400 mr-4"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <!-- GitHub Link -->
+                <a href="https://github.com/srinani007" target="_blank" class="contact-link flex items-center text-lg hover:text-blue-400 transition-colors">
+                    <i class="fab fa-github text-blue-400 mr-4"></i>
+                    <span>GitHub Portfolio</span>
+                </a>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contact-form" action="https://email-sender-73cw.onrender.com/api/contact/send" method="POST" class="space-y-6">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                </div>
+                <button type="submit" class="submit-btn w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors font-medium">Send Message</button>
+            </form>
+            <p id="responseMessage" class="response-box mt-4 p-4 rounded-lg hidden"></p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 px-4 border-t border-gray-800">
+    <div class="footer-content container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <p class="mb-4 md:mb-0">© 2024 Venkat Sai Prasanth. Intellectual Property Protected.</p>
+        <div class="social-icons flex space-x-6">
+            <a href="https://medium.com/@prasanthKunchanapalli" target="_blank" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-medium"></i></a>
+            <a href="https://stackoverflow.com/users/yourid" target="_blank" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-stack-overflow"></i></a>
+            <a href="https://leetcode.com/prasanth_kunchanapalli" target="_blank" class="text-xl hover:text-blue-400 transition-colors"><i class="fas fa-code"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Loading screen
+    window.addEventListener('load', function() {
+        const loader = document.querySelector('.loader');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1000);
+        }, 1500);
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or use preferred color scheme
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        html.classList.add('dark');
+        themeToggle.innerHTML = '☀️';
+    } else {
+        html.classList.remove('dark');
+        themeToggle.innerHTML = '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        if (html.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '🌙';
+        }
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeMenu = document.querySelector('.close-menu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link-mobile').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+
+                // Update URL without page jump
+                if (history.pushState) {
+                    history.pushState(null, null, targetId);
+                } else {
+                    location.hash = targetId;
+                }
+            }
+        });
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    const responseMessage = document.getElementById('responseMessage');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    responseMessage.textContent = 'Message sent successfully!';
+                    responseMessage.classList.remove('hidden', 'bg-red-500');
+                    responseMessage.classList.add('bg-green-500');
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message || 'Failed to send message');
+                }
+            } catch (error) {
+                responseMessage.textContent = error.message;
+                responseMessage.classList.remove('hidden', 'bg-green-500');
+                responseMessage.classList.add('bg-red-500');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                responseMessage.classList.remove('hidden');
+
+                setTimeout(() => {
+                    responseMessage.classList.add('hidden');
+                }, 5000);
+            }
+        });
+    }
+
+    // Video mute toggle (if needed)
+    const video = document.getElementById('myVideo');
+    if (video) {
+        // Ensure video is muted for autoplay
+        video.muted = true;
+    }
+</script>
+</body>
+</html>

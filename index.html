@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:justify-content="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkat Sai Prasanth - Full Stack & AI Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<!-- Loading Screen -->
+<div class="loader" aria-hidden="true">
+    <div class="quantum-loader">
+        <div class="quantum-dot"></div>
+        <div class="quantum-dot"></div>
+        <div class="quantum-dot"></div>
+    </div>
+</div>
+
+
+<!-- Theme Toggle + Stars -->
+<div class="stars"></div>
+<div class="stars"></div>
+
+<div class="video-container">
+    <video id="myVideo" autoplay muted loop playsinline class="hero-video">
+        <source src="video-4.mp4" type="video/mp4">
+        <!-- Fallback image -->
+        <img src="fallback-image.jpg" alt="Background pattern">
+    </video>
+</div>
+
+<header class="neon-header">
+    <nav class="responsive-nav">
+        <div class="nav-brand">
+            <img src="logo.png" alt="Venkat's Portfolio Logo" class="hologram-logo">
+        </div>
+        <div class="toggle-container">
+            <label class="toggle-switch" for="theme-toggle" aria-label="Toggle theme">
+                <input type="checkbox" id="theme-toggle" title="Toggle dark/light theme">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <button class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+        <ul class="nav-items">
+            <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
+            <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero section">
+    <div class="hero-image">
+        <img src="avata.png" alt="Avatar of Venkat Sai Prasanth">
+    </div>
+    <div class="hero-content">
+        <h1>Hello, I'm Venkat Sai Prasanth</h1>
+        <p class="animated-text">Software Development Engineer | AI & Cloud Expert</p>
+        <a href="#contact" class="cta-btn"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+        <a href="Venkat_Sai_Prasanth_Resume.pdf" download class="cta-btn secondary"><i class="fas fa-download"></i>
+            Download Resume</a>
+    </div>
+    <div class="scroll-indicator">
+        <p>Scroll Down</p>
+        <div class="scroll-icon"></div>
+    </div>
+</section>
+<section id="about" class="section" style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+    <div class="pp"><h2>Professional Profile</h2></div>
+    <h4 style="margin: 1rem; justify-content: center; text-align: justify;">I’m a Software Development Engineer with a Master’s in
+        Business Analytics from Trine
+        University, passionate about harnessing AI and cloud technologies to solve real-world challenges. With over
+        6 years of experience, I specialize in crafting scalable microservices and AI-driven solutions using tools
+        like Java, Python, Spring Boot, React, TensorFlow, and PyTorch on platforms like GCP, AWS, and Azure.</h4>
+    <h4 style="margin: 1rem; justify-content: center; text-align: justify;">The journey is fueled by a drive to innovate—whether
+        it’s optimizing real-time data
+        processing, exploring quantum computing, or delivering impactful user experiences. Dive into my projects
+        and experience below to see how I turn ideas into reality!</h4>
+    <br>
+    <div class="about-grid">
+        <div class="about-card">
+            <h3><i class="fas fa-rocket"></i> Technical Leadership</h3>
+            <ul class="achievement-list">
+                <li>Led 10+ cross-functional teams in cloud migration projects</li>
+                <li>Architected microservices handling 50K+ RPM on AWS</li>
+                <li>Mentored 15+ junior developers in best practices</li>
+            </ul>
+        </div>
+        <div class="about-card">
+            <h3><i class="fas fa-shield-alt"></i> Security Innovations</h3>
+            <ul class="achievement-list">
+                <li>Implemented Zero Trust Architecture for Fortune 500 client</li>
+                <li>Reduced security incidents by 65% through DevSecOps pipeline</li>
+                <li>Conducted 50+ penetration tests for financial systems</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">Java 17</div>
+        <div class="skill-card">Spring Boot</div>
+        <div class="skill-card">ReactJS</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">TensorFlow</div>
+        <div class="skill-card">AWS</div>
+        <div class="skill-card">GCP</div>
+        <div class="skill-card">Azure</div>
+        <div class="skill-card">Docker</div>
+        <div class="skill-card">Kubernetes</div>
+        <div class="skill-card">Kafka</div>
+        <div class="skill-card">Sparks</div>
+        <div class="skill-card">NLP</div>
+        <div class="skill-card">PyTorch</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">Machine Learning</div>
+        <div class="skill-card">Data Analysis</div>
+        <div class="skill-card">Agile Methodologies</div>
+        <div class="skill-card">CI/CD</div>
+        <div class="skill-card">DevOps</div>
+        <div class="skill-card">Microservices</div>
+        <div class="skill-card">RESTful APIs</div>
+        <div class="skill-card">GraphQL</div>
+        <div class="skill-card">Redis</div>
+        <div class="skill-card">MongoDB</div>
+        <div class="skill-card">PostgreSQL</div>
+        <div class="skill-card">MySQL</div>
+        <div class="skill-card">NoSQL</div>
+        <div class="skill-card">HTML5</div>
+        <div class="skill-card">CSS3</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">TypeScript</div>
+        <div class="skill-card">Node.js</div>
+        <div class="skill-card">Express.js</div>
+        <div class="skill-card">GraphQL</div>
+    </div>
+</section>
+<section id="experience" class="section" style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-wrap-mode:wrap;">
+    <div class="experience-title">
+        <h2>Professional Experience</h2>
+    </div>
+    <div class="timeline" style="top: 0px; margin-top: 10px; font-size: large;">
+        <div class="timeline-item">
+            <h3>Graduate Research Assistant @ Trine University</h3>
+            <p class="timeline-date">Aug 2023 - Present</p>
+            <div class="timeline-details">
+                <ul>
+                    <li>Designed real-time analytics pipeline processing 2TB/day using Spark</li>
+                    <li>Developed predictive maintenance models with 92% accuracy</li>
+                    <li>Optimized AWS costs by 40% through infrastructure automation</li>
+                </ul>
+                <div class="tech-stack">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Kubernetes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <h3>AI Engineer @ University of Dayton</h3>
+            <p class="timeline-date">Jul 2023 - Aug 2023</p>
+            <div class="timeline-details">
+                <ul>
+                    <li>Built document processing system with 30% accuracy improvement</li>
+                    <li>Integrated Google Vision API for image classification</li>
+                    <li>Reduced processing time by 25% through parallel computing</li>
+                </ul>
+                <div class="tech-stack">
+                    <span>GCP</span>
+                    <span>Node.js</span>
+                    <span>Computer Vision</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Mphasis Technologies - Software Engineer</h3>
+            <p class="timeline-date">Jul 2022 – Mar 2023</p>
+            <div class="timeline-details">
+                <ul>
+                    <li>Migrated banking systems to microservices with Spring Boot and AWS, reducing downtime by 30%
+                    </li>
+                    <li>Implemented CI/CD pipelines, reducing deployment time by 50%</li>
+                    <li>Developed RESTful APIs for payment processing, improving transaction speed by 20%</li>
+                    <li>Collaborated with cross-functional teams to enhance system performance</li>
+                </ul>
+                <div class="tech-stack">
+                    <span>Java</span>
+                    <span>Spring Boot</span>
+                    <span>AWS</span>
+                    <span>Docker</span>
+                    <span>Kubernetes</span>
+                    <span>MySQL</span>
+                    <span>CI/CD</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Swiss Mobi Software Technologies - Software Engineer</h3>
+            <p class="timeline-date">Mar 2019 – Jun 2022</p>
+            <div class="timeline-details">
+                <ul>
+                    <li>Built payment processing platforms and SPAs with React.js, improving performance by 20%</li>
+                    <li>Designed and implemented microservices architecture for an e-commerce platform</li>
+                    <li>Integrated third-party APIs for payment processing and shipping</li>
+                    <li>Conducted code reviews and mentored junior developers</li>
+                    <li>Collaborated with product managers to define project scope and requirements</li>
+                    <li>Participated in Agile ceremonies, including sprint planning and retrospectives</li>
+                </ul>
+                <div class="tech-stack">
+                    <span>Java</span>
+                    <span>Spring Boot</span>
+                    <span>React.js</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                    <span>Redis</span>
+                    <span>Kafka</span>
+                    <span>Docker</span>
+                    <span>Jenkins</span>
+                    <span>JUnit</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="projects" class="section" style="top: 0px; margin-top: 10px; font-size: large;">
+    <h2 style="font-size: 3rem;">Technical Showcase</h2>
+    <div class="projects-grid">
+        <div class="project-card" style="text-align: left;">
+            <h3 style="font-size: 1.5rem; color: #00ffff;">Real-time Data Processing System</h3>
+            <ul class="project-details">
+                <li>Achieved 95% accuracy in fraud detection</li>
+                <li>Real-time data processing with Apache Kafka</li>
+                <li>Deployed on AWS Lambda for scalability</li>
+            </ul>
+            <div class="project-tech">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>AWS Lambda</span>
+            </div>
+        </div>
+        <div class="project-card" style="text-align: left;">
+            <h3 style="font-size: 1.5rem; color: #00ffff;">AI-Powered Chatbot</h3>
+            <p>Built with Spring Boot and GCP Cloud Functions, integrated with Dialogflow CX for seamless
+                interactions.</p>
+            <ul class="project-details">
+                <li>Integrated with Google Cloud Functions</li>
+                <li>Utilized Dialogflow CX for natural language processing</li>
+                <li>Implemented CI/CD pipeline for continuous deployment</li>
+            </ul>
+            <div class="project-tech">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>GCP</span>
+            </div>
+        </div>
+        <div class="project-card" style="text-align: left;">
+            <h3 style="font-size: 1.5rem; color: #00ffff;">Fraud Detection Microservice</h3>
+            <p>AI-driven system using TensorFlow, Kafka, and Redis for real-time anomaly detection.</p>
+            <ul class="project-details">
+                <li>Real-time fraud detection with 95% accuracy</li>
+                <li>Used TensorFlow for machine learning</li>
+                <li>Implemented with Kafka and Redis for data streaming</li>
+            </ul>
+            <div class="project-tech">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>TensorFlow</span>
+                <span>Kafka</span>
+                <span>Redis</span>
+            </div>
+        </div>
+        <div class="project-card" style="text-align: left;">
+            <h3 style="font-size: 1.5rem; color: #00ffff;">Predictive Analytics for Sales</h3>
+            <p>Developed ML models in Python to forecast sales, optimizing inventory management.</p>
+            <ul class="project-details">
+                <li>Implemented predictive models with 90% accuracy</li>
+                <li>Used Python and TensorFlow for model development</li>
+                <li>Deployed on AWS Lambda for scalability</li>
+            </ul>
+            <div class="project-tech">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>AWS Lambda</span>
+            </div>
+        </div>
+        <div class="project-card">
+            <h3 style="font-size: 1.5rem;  margin-bottom: 15px;">Social Media Platform</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <!-- Screenshot Section -->
+                <div style="width: 100%; overflow: hidden; border-radius: 8px;">
+                    <img src="image.png" alt="Social Media Platform Screenshot" style="width: 100%; height: auto;  border-radius: 8px;">
+                </div>
+                <!-- Project Details -->
+                <ul class="project-details" style="list-style: none; padding: 0; margin: 0; font-size: 1rem; color: #ffffff;">
+                    <li style="margin-bottom: 8px;">Developed a social media platform with user authentication</li>
+                    <li style="margin-bottom: 8px;">Implemented RESTful APIs for data retrieval</li>
+                    <li style="margin-bottom: 8px;">Developed and designed via Java Spring Boot</li>
+                    <li style="margin-bottom: 8px;">Integrated with PostgreSQL for data storage</li>
+                    <li style="margin-bottom: 8px;">Implemented CI/CD pipeline for continuous deployment</li>
+                    <li style="margin-bottom: 8px;">Utilized Docker for containerization</li>
+                    <li style="margin-bottom: 8px;">Wrote a JSON file for Kubernetes containerization</li>
+                    <li style="margin-bottom: 8px;">Conducted unit testing with JUnit</li>
+                </ul>
+                <!-- Call to Action Button -->
+                <a href="https://social-media-platform-3fwe.onrender.com" style="display: inline-block; background: #00ffff; color: #1a1a1a; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; text-align: center; transition: background 0.3s, transform 0.2s; margin-top: 10px;">Check Out My Project</a>       <!-- Tech Stack -->
+                <div class="project-tech" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                    <span >Java</span>
+                    <span >Spring Boot</span>
+                    <span >PostgreSQL</span>
+                    <span >Docker</span>
+                    <span >Kubernetes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="certifications" class="section ">
+    <h2
+            class="text-3xl md:text-4xl font-bold mb-12 text-center font-orbitron bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+        Certifications</h2>
+    <ul class="certification-list grid md:grid-cols-2 gap-6">
+        <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Google Cloud Professional Data Engineer
+        </li>
+        <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> AWS Certified Solutions Architect—Associate
+        </li>
+        <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Microsoft Certified: Azure Developer Associate
+        </li>
+        <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Certified Kubernetes Administrator (CKA)
+        </li>
+        <li
+                class="flex items-center p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all">
+            <i class="fas fa-certificate text-blue-400 mr-3"></i> Oracle Certified Professional, Java SE 11
+            Developer
+        </li>
+    </ul>
+</section>
+<section id="education" class="section">
+    <h2>Academic Credentials</h2>
+    <div class="education-grid">
+        <div class="education-card">
+            <h3>MS in Business Analytics</h3>
+            <p class="institution">Trine University</p>
+            <div class="education-details">
+                <p class="gpa">GPA: 3.95/4.0</p>
+                <div class="courses">
+                    <span>Advanced Machine Learning</span>
+                    <span>Cloud Architecture</span>
+                    <span>Data Mining</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Future" class="section" style="text-align: center;" >
+    <div class="future">
+        <h2 >Future Goals</h2>
+        <div class="future-card">
+            <h4 style="line-height: 1.8;">
+                My future is rooted in ambition, innovation, and relentless drive. I aim to build groundbreaking solutions
+                at the intersection of AI, cloud computing, and real-world business needs — not just following trends, but
+                setting them. I envision myself leading transformative projects where machine learning and data-driven
+                insights shape industries and redefine possibilities.
+            </h4>
+            <br>
+            <h4 style="line-height: 1.8;">
+                I am committed to a lifetime of learning, constantly sharpening my skills in advanced AI, quantum computing,
+                blockchain, and emerging technologies that will define the next era. Beyond personal growth, I aspire to
+                mentor upcoming developers, contribute to open-source communities, and champion a culture of collaboration
+                and innovation across the tech world.
+            </h4>
+            <br>
+            <h4 style="line-height: 1.8;">
+                My long-term vision is clear: to stand at the forefront of technological evolution — building companies,
+                leading bold teams, and pushing the limits of what technology and human potential can achieve together. I’m
+                not just chasing the future; I’m shaping it.
+            </h4>
+        </div>
+    </div>
+</section>
+
+
+<section id="achievements" class="section">
+    <div class="achievements-title">
+        <h2>Achievements</h2>
+    </div>
+    <div class="achievements" >
+            <p>🏆 Here are some of my notable achievements that reflect my dedication and impact in the tech industry:</p>
+            <ul>
+                <p>📄 Published research paper on <strong>"AI in Cloud Computing"</strong> in IEEE Xplore</p>
+                <p>🎤 Presented at the <strong>International Conference on AI and Cloud Technologies</strong></p>
+                <p>🏆 Winner of Trine University Hackathon for <strong>"Best AI Solution"</strong></p>
+                <p>📊 Ranked in the <strong>Top 5%</strong> in Kaggle competitions for predictive modeling</p>
+                <p>🎓 Completed <strong>100+ hours</strong> of online courses on Coursera and Udacity</p>
+                <p>☁️ Secured <strong>2nd place</strong> at the Google Cloud Hackathon</p>
+                <p>💻 Contributed to open-source GitHub projects in AI and Cloud domains</p>
+                <p>🧑‍🏫 Volunteered as a mentor at local coding bootcamp, teaching <strong>Java & Python</strong></p>
+                <p>📢 Organized community tech meetups and workshops on AI/Cloud tech</p>
+                <p>⭐ Earned "Employee of the Month" at Mphasis for outstanding performance</p>
+                <p>🛡️ Completed <strong>AWS & GCP certifications</strong> with high distinction</p>
+                <p>🥇 Won multiple awards in national-level hackathons and coding competitions</p>
+            </ul>
+    </div>
+</section>
+<section id="hobbies" class="section">
+    <div class="hobbies-title">
+        <h2 >Hobbies & Interests</h2>
+    </div>
+    <div class="hobbies">
+        <ul class="hobbies-list">
+            <p>💻 Coding: Passionate about open-source contributions and personal projects</p>
+            <p>🎮 Gaming: Passionate about strategy and simulation games</p>
+            <p>📚 Reading: Enjoy books on technology, AI, and science fiction</p>
+            <p>🎨 Art: Exploring digital art and graphic design</p>
+            <p>🌍 Travel: Love to explore new cultures and cuisines</p>
+            <p>🎶 Music: Enjoy listening to various genres, especially electronic and classical</p>
+            <p>🏋️‍♂️ Fitness: Regularly engage in workouts and outdoor activities</p>
+            <p>🧘‍♂️ Meditation: Practice mindfulness and meditation for mental well-being</p>
+            <p>📸 Photography: Enjoy capturing moments and landscapes</p>
+            <p>🎤 Public Speaking: Participate in tech talks and community events</p>
+        </ul>
+    </div>
+</section>
+
+<section id="contact" class="section" >
+    <div class="c-title">
+        <h2>Connect</h2>
+    </div>
+    <div class="contact-wrapper">
+        <div class="contact-card">
+            <!-- Email Link -->
+            <a href="mailto:kvsprasanth007@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>kvsprasanth007@gmail.com</span>
+            </a>
+            <!-- LinkedIn Link -->
+            <a href="https://www.linkedin.com/in/venkat-kunchanapalli-49515274/" target="_blank" rel="noopener"
+               class="contact-link">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <!-- GitHub Link -->
+            <a href="https://github.com/srinani007" target="_blank" class="contact-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub Portfolio</span>
+            </a>
+            <!-- Contact Form -->
+            <form id="contact-form" action="https://emailsender-scf1.onrender.com/api/contact/send" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div><br>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <p id="responseMessage" class="response-box"></p>
+        </div>
+    </div>
+</section>
+
+<footer class="py-8 px-4 border-t border-gray-800">
+    <div class="footer-content container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <p class="mb-4 md:mb-0">© 2025 Venkat Sai Prasanth. Intellectual Property Protected.</p>
+        <div class="social-icons flex space-x-6">
+            <a href="https://medium.com/@prasanthKunchanapalli" target="_blank" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-medium"></i></a>
+            <a href="https://stackoverflow.com/users/yourid" target="_blank" class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-stack-overflow"></i></a>
+            <a href="https://leetcode.com/prasanth_kunchanapalli" target="_blank" class="text-xl hover:text-blue-400 transition-colors"><i class="fas fa-code"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+
+</html>
