@@ -45,18 +45,16 @@
             <div class="nav-brand">
                 <img src="logo.png" alt="Venkat's Portfolio Logo" class="hologram-logo">
             </div>
-            <div class="toggle-container">
-                <label class="toggle-switch" for="theme-toggle" aria-label="Toggle theme">
-                    <input type="checkbox" id="theme-toggle" title="Toggle dark/light theme">
-                    <span class="slider"></span>
-                </label>
+            <div class="theme-toggle-container">
+                <input type="checkbox" name="theme" id="theme-toggle" />
+                <label for="theme-toggle" class="label"></label>
             </div>
             <button class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
             </button>
-            <ul class="nav-items">
+            <ul class="nav-items is-hidden" id="nav-primary">
                 <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
                 <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
@@ -500,27 +498,18 @@
                     <i class="fab fa-github"></i>
                     <span>GitHub Portfolio</span>
                 </a>
-                <!-- Contact Form -->
-                <form id="contact-form" action="https://emailsender-scf1.onrender.com/api/contact/send" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div><br>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-                <p id="responseMessage" class="response-box"></p>
+                <a href="phone:+1234567890" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (234) 567-890</span>
+                </a>
             </div>
         </div>
     </section>
 
     <footer class="py-8 px-4 border-t border-gray-800">
         <div class="footer-content container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <p class="mb-4 md:mb-0">© 2025 Venkat Sai Prasanth. Intellectual Property Protected.</p>
+            <p class="mb-4 md:mb-0">© <span class="current-year"></span> Venkat Sai Prasanth. Intellectual Property
+                Protected.</p>
             <div class="social-icons flex space-x-6">
                 <a href="https://medium.com/@prasanthKunchanapalli" target="_blank"
                     class="text-xl hover:text-blue-400 transition-colors"><i class="fab fa-medium"></i></a>
@@ -531,6 +520,7 @@
             </div>
         </div>
     </footer>
+
 
     <script src="script.js"></script>
 </body>
