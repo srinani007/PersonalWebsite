@@ -48,9 +48,6 @@
   --toggle-thumb-checked: linear-gradient(315deg, #222222 0%, #666666 70%);
 }
 
-
-
-/* ========== RESET & BASE STYLES ========== */
 * {
   margin: 0;
   padding: 0;
@@ -63,74 +60,12 @@
 body {
   background: var(--bg-gradient);
   color: var(--text-color);
-  font-family: var(--font-primary); /* ✅ now using the variable correctly */
+  font-family: var(--font-primary);
   line-height: 1.8;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-  transition: background 0.5s ease, color 0.5s ease; /* Optional smooth theme switch */
 }
-
-.label {
-  height: 30px;
-  width: 60px;
-  background-color: var(--toggle-bg);
-  border-radius: 30px;
-  box-shadow: inset 0 0 5px 4px #fff,
-    inset 0 0 20px 1px rgba(0, 0, 0, 0.488),
-    10px 20px 30px rgba(0, 0, 0, 0.096),
-    inset 0 0 0 3px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.4s;
-}
-
-.label::before {
-  position: absolute;
-  content: "";
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-image: var(--toggle-thumb);
-  left: 10px;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3),
-    10px 10px 10px rgba(0, 0, 0, 0.3);
-  transition: 0.4s;
-}
-.label::before {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: #fff;
-  content: '☀️'; /* default sun icon */
-}
-
-#theme-toggle:checked ~ .label::before {
-  content: '🌙'; /* moon icon on toggle */
-}
-
-#theme-toggle {
-  display: none;
-  height: 30px;
-  width:30px;
-}
-
-#theme-toggle:checked ~ .label::before {
-  left: 70px;
-  background-image: var(--toggle-thumb-checked);
-}
-
-.label:hover {
-  transform: perspective(100px) rotateX(5deg) rotateY(-5deg);
-}
-
-#theme-toggle:checked ~ .label:hover {
-  transform: perspective(100px) rotateX(-5deg) rotateY(5deg);
-}
-
 
 /* ========== TYPOGRAPHY ========== */
 h1, h2, h3, h4 {
@@ -304,6 +239,81 @@ ul {
   transition: var(--transition);
   border-radius: 3px;
 }
+/* ========== THEME TOGGLE + STARS ========== */
+
+.stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow:
+    50px 100px #fff,
+    150px 200px #fff,
+    250px 80px #fff,
+    350px 300px #fff,
+    450px 150px #fff,
+    550px 250px #fff,
+    650px 50px #fff,
+    750px 350px #fff;
+  animation: twinkle 2s infinite ease-in-out;
+}
+.stars:nth-child(2) {
+  transform: translateY(200px) translateX(100px);
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1;   }
+}
+
+.toggle-container {
+  position: relative;
+    display: flex;
+  z-index: 1001; /* above the stars & most other things */
+}
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--toggle-bg);
+  transition: background-color 0.3s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "☀️";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--primary-color);
+  transition: transform 0.3s, background-color 0.3s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+input:checked + .slider {
+  background-color: var(--secondary-color);
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+  content: "🌙";
+}
+
 
 /* ========== HERO SECTION ========== */
 .hero {
@@ -560,7 +570,7 @@ ul {
 /* ========== PROJECTS SECTION ========== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 2rem;
 }
@@ -1172,24 +1182,4 @@ footer {
   .section {
     padding: 100px 30px;
   }
-}
-/* Add to media queries section */
-@media (min-width: 769px) {
-  #nav-primary {
-    display: flex !important; /* Override mobile hidden state */
-    position: static;
-  }
-  
-  .hamburger {
-    display: none;
-  }
-}
-
-/* Add new rules below existing navigation styles */
-#nav-primary {
-  display: none; /* Default hidden on mobile */
-}
-
-#nav-primary:not(.is-hidden) {
-  display: flex; /* Visible when menu open */
 }
