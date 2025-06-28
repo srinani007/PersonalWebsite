@@ -114,6 +114,8 @@ body {
 
 #theme-toggle {
   display: none;
+  height: 30px;
+  width:30px;
 }
 
 #theme-toggle:checked ~ .label::before {
