@@ -17,14 +17,25 @@
     }
 
     /* ==================== HAMBURGER NAVIGATION ==================== */
-    const hamburger = document.querySelector('.hamburger');
+   const hamburger = document.querySelector('.hamburger');
 const nav = document.getElementById('nav-primary');
-const navLinks = nav ? nav.querySelectorAll('a') : [];
+const navLinks = nav ? Array.from(nav.querySelectorAll('a')) : [];
 
 const toggleMenu = () => {
   const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-  hamburger.setAttribute('aria-expanded', !expanded);
+  const newState = !expanded;
+  
+  hamburger.setAttribute('aria-expanded', newState);
   nav.classList.toggle('is-hidden');
+  
+  // Focus management for accessibility
+  if (newState) {
+    // Move focus to first nav item when opening
+    setTimeout(() => navLinks[0]?.focus(), 10);
+  } else {
+    // Return focus to hamburger when closing
+    setTimeout(() => hamburger.focus(), 10);
+  }
 };
 
 if (hamburger && nav) {
@@ -38,12 +49,57 @@ if (hamburger && nav) {
     }
   });
 
-  // Close menu on link click (mobile)
-  navLinks.forEach(link => link.addEventListener('click', () => {
-    if (window.innerWidth <= 768 && !nav.classList.contains('is-hidden')) {
+  // Escape key support
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !nav.classList.contains('is-hidden')) {
       toggleMenu();
     }
-  }));
+  });
+
+  // Close menu on link click (mobile)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768 && !nav.classList.contains('is-hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', e => {
+    const isNav = nav.contains(e.target);
+    const isHamburger = hamburger.contains(e.target);
+    
+    if (!isNav && !isHamburger && !nav.classList.contains('is-hidden')) {
+      toggleMenu();
+    }
+  });
+
+  // Close menu on desktop resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && !nav.classList.contains('is-hidden')) {
+      toggleMenu();
+    }
+  });
+
+  // Keyboard tab loop management
+  navLinks.forEach((link, index) => {
+    link.addEventListener('keydown', e => {
+      // Close menu on escape
+      if (e.key === 'Escape') toggleMenu();
+      
+      // Loop focus in menu
+      if (e.key === 'Tab') {
+        if (!e.shiftKey && index === navLinks.length - 1) {
+          navLinks[0].focus();
+          e.preventDefault();
+        } else if (e.shiftKey && index === 0) {
+          hamburger.focus();
+          e.preventDefault();
+        }
+      }
+    });
+  });
 }
 
     /* ==================== SMOOTH SCROLL ==================== */
