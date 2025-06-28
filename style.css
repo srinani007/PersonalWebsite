@@ -1173,3 +1173,23 @@ footer {
     padding: 100px 30px;
   }
 }
+/* Add to media queries section */
+@media (min-width: 769px) {
+  #nav-primary {
+    display: flex !important; /* Override mobile hidden state */
+    position: static;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Add new rules below existing navigation styles */
+#nav-primary {
+  display: none; /* Default hidden on mobile */
+}
+
+#nav-primary:not(.is-hidden) {
+  display: flex; /* Visible when menu open */
+}
