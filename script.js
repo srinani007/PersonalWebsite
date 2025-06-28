@@ -18,33 +18,33 @@
 
     /* ==================== HAMBURGER NAVIGATION ==================== */
     const hamburger = document.querySelector('.hamburger');
-    const nav = document.getElementById('nav-primary');
-    const navLinks = nav ? nav.querySelectorAll('a') : [];
+const nav = document.getElementById('nav-primary');
+const navLinks = nav ? nav.querySelectorAll('a') : [];
 
-    const toggleMenu = () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-      nav.classList.toggle('is-hidden');
-    };
+const toggleMenu = () => {
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+  hamburger.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('is-hidden');
+};
 
-    if (hamburger && nav) {
-      hamburger.addEventListener('click', toggleMenu);
+if (hamburger && nav) {
+  hamburger.addEventListener('click', toggleMenu);
 
-      // Keyboard support
-      hamburger.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleMenu();
-        }
-      });
-
-      // Close menu on link click (mobile)
-      navLinks.forEach(link => link.addEventListener('click', () => {
-        if (window.innerWidth <= 768 && !nav.classList.contains('is-hidden')) {
-          toggleMenu();
-        }
-      }));
+  // Keyboard support
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
     }
+  });
+
+  // Close menu on link click (mobile)
+  navLinks.forEach(link => link.addEventListener('click', () => {
+    if (window.innerWidth <= 768 && !nav.classList.contains('is-hidden')) {
+      toggleMenu();
+    }
+  }));
+}
 
     /* ==================== SMOOTH SCROLL ==================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
